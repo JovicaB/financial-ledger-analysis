@@ -1,0 +1,181 @@
+AOP,description,year_1,year_2,year_3,year_4,year_5
+0001,Upisani a neuplaćeni kapital,0,0,0,0,0
+0002,STALNA IMOVINA,114790,101222,91204,81606,77543
+0003,NEMATERIJALNA IMOVINA,5537,2329,2953,3190,1631
+0004,Ulaganja u razvoj,0,0,0,0,0
+0005,"Koncesije, patenti, licence, robne i uslužne marke, softver i ostala nematerijalna imovina",5537,2329,2953,3190,1631
+0006,Gudvil,0,0,0,0,0
+0007,Nematerijalna imovina uzeta u lizing i nematerijalna imovina u pripremi,0,0,0,0,0
+0008,Avansi za nematerijalnu imovinu,0,0,0,0,0
+0009,"NEKRETNINE, POSTROJENJA I OPREMA",108942,98572,87927,78186,75682
+0010,Zemljište i građevinski objekti,58118,62246,48806,49941,50895
+0011,Postrojenja i oprema,40020,33486,33793,28245,24787
+0012,Investicione nekretnine,0,0,0,0,0
+0013,"Nekretnine, postrojenja i oprema uzeti u lizing i nekretnine, postrojenja i oprema u pripremi",734,2840,5328,0,0
+0014,"Ostale nekretnine, postrojenja i oprema i ulaganja na tuđim nekretninama, postrojenjima i opremi",0,0,0,0,0
+0015,"Avansi za nekretnine, postrojenja i opremu u zemlji",10070,0,0,0,0
+0016,"Avansi za nekretnine, postrojenja i opremu u inostranstvu",0,0,0,0,0
+0017,Biološka sredstva,0,0,0,0,0
+0018,DUGOROČNI FINANSIJSKI PLASMANI I DUGOROČNA POTRAŽIVANJA,311,321,324,230,230
+0019,Učešća u kapitalu pravnih lica (osim učešća u kapitalu koja se vrednuju metodom učešća),45,45,45,45,45
+0020,Učešća u kapitalu koja se vrednuju metodom učešća,0,0,0,0,0
+0021,"Dugoročni plasmani matičnom, zavisnim i ostalim povezanim licima i dugoročna potraživanja od tih lica u zemlji",0,0,0,0,0
+0022,"Dugoročni plasmani matičnom, zavisnim i ostalim povezanim licima i dugoročna potraživanja od tih lica u inostranstvu",0,0,0,0,0
+0023,Dugoročni plasmani (dati krediti i zajmovi) u zemlji,0,0,0,0,0
+0024,Dugoročni plasmani (dati krediti i zajmovi) u inostranstvu,0,0,0,0,0
+0025,Dugoročna finansijska ulaganja (hartije od vrednosti koje se vrednuju po amortizovanoj vrednosti),0,0,0,0,0
+0026,Otkupljene sopstvene akcije i otkupljeni sopstveni udeli,29,29,29,0,0
+0027,Ostali dugoročni finansijski plasmani i ostala dugoročna potraživanja,237,247,250,360,360
+0028,Dugoročna aktivna vremenska razgraničenja,0,0,0,0,0
+0029,Odložena poreska sredstva,831,1167,1142,606,414
+0030,OBRTNA IMOVINA,680500,702073,729630,575050,466051
+0031,ZALIHE,202565,184049,132665,106012,110832
+0032,"Materijal, rezervni delovi, alat i sitan inventar",0,0,68,0,0
+0033,Nedovršena proizvodnja i gotovi proizvodi,0,0,0,0,0
+0034,Roba,113641,153766,114621,98620,96271
+0035,Plaćeni avansi za zalihe i usluge u zemlji,64225,11247,17181,7392,14561
+0036,Plaćeni avansi za zalihe i usluge u inostranstvu,24699,19036,795,0,0
+0037,Stalna imovina koja se drži za prodaju i prestanak poslovanja,0,0,0,0,0
+0038,POTRAŽIVANJA PO OSNOVU PRODAJE,345722,399405,453988,395716,298561
+0039,Potraživanja od kupaca u zemlji,341303,382068,422649,377118,274327
+0040,Potraživanja od kupaca u inostranstvu,3080,4397,4050,3519,6955
+0041,"Potraživanja od matičnog, zavisnih i ostalih povezanih lica u zemlji",0,10667,21285,15079,17279
+0042,"Potraživanja od matičnog, zavisnih i ostalih povezanih lica u inostranstvu",0,0,0,0,0
+0043,Ostala potraživanja po osnovu prodaje,1339,2273,6004,0,0
+0044,OSTALA KRATKOROČNA POTRAŽIVANJA,20522,10891,28980,15971,32748
+0045,Ostala potraživanja,6736,10865,27527,0,0
+0046,Potraživanja za više plaćen porez na dobitak,13760,0,1427,0,0
+0047,Potraživanja po osnovu preplaćenih ostalih poreza i doprinosa,26,26,26,0,0
+0048,KRATKOROČNI FINANSIJSKI PLASMANI,944,243,553,902,3705
+0049,Kratkoročni krediti i plasmani - matično i zavisna pravna lica,0,0,0,0,0
+0050,2. kratkoročni krediti i plasmani - ostala povezana lica,0,0,0,0,2500
+0051,"Kratkoročni krediti, zajmovi i plasmani u zemlji",944,243,553,873,1176
+0052,"Kratkoročni krediti, zajmovi i plasmani u inostranstvu",0,0,0,0,0
+0053,Hartije od vrednosti koje se vrednuju po amortizovanoj vrednosti,0,0,0,0,0
+0054,Finansijska sredstva koja se vrednuju po fer vrednosti kroz bilans uspeha,0,0,0,0,0
+0055,Otkupljene sopstvene akcije i otkupljeni sopstveni udeli,0,0,0,29,29
+0056,Ostali kratkoročni finansijski plasmani,0,0,0,0,0
+0057,Gotovina i gotovinski ekvivalenti,110699,93461,111231,55604,9704
+0058,Kratkoročna aktivna vremenska razgraničenja,48,14024,2213,874,10530
+0059,UKUPNA AKTIVA,796121,804462,821976,657262,544008
+0060,Vanbilansna aktiva,400070,271065,122888,26010,8541
+0401,KAPITAL,496508,481337,394629,313344,214825
+0402,Osnovni kapital,394,394,394,394,394
+0403,Upisani a neuplaćeni kapital,0,0,0,0,0
+0404,Emisiona premija,0,0,0,0,0
+0405,Rezerve,29,29,29,29,29
+0406,Pozitivne revalorizacione rezerve i nerealizovani dobici po osnovu finansijskih sredstava i drugih komponenti ostalog sveobuhvatnog rezultata,0,0,0,0,0
+0407,Nerealizovani gubici po osnovu finansijskih sredstava i drugih komponenti ostalog sveobuhvatnog rezultata,0,0,0,0,0
+0408,NERASPOREĐENI DOBITAK,496085,480914,394206,312950,214431
+0409,Neraspoređeni dobitak ranijih godina,424782,317455,312483,214431,161268
+0410,Neraspoređeni dobitak tekuće godine,71303,163459,81723,98519,53163
+0411,Učešće bez prava kontrole,0,0,0,0,0
+0412,GUBITAK,0,0,0,0,0
+0413,Gubitak ranijih godina,0,0,0,0,0
+0414,Gubitak tekuće godine,0,0,0,0,0
+0415,DUGOROČNA REZERVISANJA I DUGOROČNE OBAVEZE,1963,15539,47819,76541,5662
+0416,DUGOROČNA REZERVISANJA,1963,2525,2525,1989,1742
+0417,Rezervisanja za naknade i druge beneficije zaposlenih,1963,2525,2525,1989,1742
+0418,Rezervisanja za troškove u garantnom roku,0,0,0,0,0
+0419,Ostala dugoročna rezervisanja,0,0,0,0,0
+0420,DUGOROČNE OBAVEZE,0,13014,45294,74552,3920
+0421,Obaveze koje se mogu konvertovati u kapital,0,0,0,0,0
+0422,"Dugoročni krediti i ostale dugoročne obaveze prema matičnom, zavisnim i ostalim povezanim licima u zemlji",0,0,0,0,0
+0423,"Dugoročni krediti i ostale dugoročne obaveze prema matičnom, zavisnim i ostalim povezanim licima u inostranstvu",0,0,0,0,0
+0424,"Dugoročni krediti, zajmovi i obaveze po osnovu lizinga u zemlji",0,13014,45294,74552,3920
+0425,"Dugoročni krediti, zajmovi i obaveze po osnovu lizinga u inostranstvu",0,0,0,0,0
+0426,Obaveze po emitovanim hartijama od vrednosti,0,0,0,0,0
+0427,Ostale dugoročne obaveze,0,0,0,0,0
+0428,Dugoročna pasivna vremenska razgraničenja,0,0,0,0,0
+0429,Odložene poreske obaveze,0,0,0,0,0
+0430,Dugoročni odloženi prihodi i primljene donacije,0,0,0,0,0
+0431,KRATKOROČNA REZERVISANJA I KRATKOROČNE OBAVEZE,297650,307586,379528,267377,323521
+0432,Kratkoročna rezervisanja,0,0,0,0,0
+0433,KRATKOROČNE FINANSIJSKE OBAVEZE,13092,58629,82909,27977,87658
+0434,"Obaveze po osnovu kredita prema matičnom, zavisnim i ostalim povezanim licima u zemlji",0,0,0,0,0
+0435,"Obaveze po osnovu kredita prema matičnom, zavisnim i ostalim povezanim licima u inostranstvu",0,0,0,0,0
+0436,Obaveze po osnovu kredita i zajmova od lica koja nisu domaće banke,735,44046,41559,0,0
+0437,Obaveze po osnovu kredita od domaćih banaka,12357,14583,41350,2799,64139
+0438,"Krediti, zajmovi i obaveze iz inostranstva",0,0,0,0,0
+0439,Obaveze po kratkoročnim hartijama od vrednosti,0,0,0,25178,23519
+0440,Obaveze po osnovu finansijskih derivata,0,0,0,0,0
+0441,"Primljeni avansi, depoziti i kaucije",52925,40670,77562,4362,16253
+0442,OBAVEZE IZ POSLOVANJA,226543,171419,203756,210461,184210
+0443,"Obaveze prema dobavljačima - matična, zavisna pravna lica i ostala povezana lica u zemlji",415,735,330,3308,199
+0444,"Obaveze prema dobavljačima - matična, zavisna pravna lica i ostala povezana lica u inostranstvu",0,0,0,0,0
+0445,Obaveze prema dobavljačima u zemlji,207783,159291,197208,197590,174210
+0446,Obaveze prema dobavljačima u inostranstvu,18320,11335,6160,9505,9654
+0447,Obaveze po menicama,0,0,0,0,0
+0448,Ostale obaveze iz poslovanja,25,58,58,58,147
+0449,OSTALE KRATKOROČNE OBAVEZE,3866,22682,13294,23456,34506
+0450,Ostale kratkoročne obaveze,366,647,2750,5844,28700
+0451,Obaveze po osnovu poreza na dodatu vrednost i ostalih javnih prihoda,3500,6945,10544,17612,5806
+0452,Obaveze po osnovu poreza na dobitak,0,15090,0,0,0
+0453,Obaveze po osnovu sredstava namenjenih prodaji i sredstava poslovanja koje je obustavljeno,0,0,0,0,0
+0454,Kratkoročna pasivna vremenska razgraničenja,1224,14186,2007,1121,894
+0455,Gubitak iznad visine kapitala,0,0,0,0,0
+0456,UKUPNA PASIVA,796121,804462,821976,657262,544008
+0457,Vanbilansna pasiva,400070,271065,122888,26010,8541
+1001,POSLOVNI PRIHODI,1600822,1928890,1765372,1087184,1270492
+1002,PRIHODI OD PRODAJE ROBE,1549904,1820869,1721134,1065917,1248152
+1003,Prihodi od prodaje robe na domaćem tržištu,1520875,1767570,1661980,1025120,1179896
+1004,Prihodi od prodaje roba na inostranom tržištu,29029,53299,59154,40797,68256
+1005,PRIHODI OD PRODAJE PROIZVODA I USLUGA,49527,108021,42027,15608,22331
+1006,Prihodi od prodaje proizvoda i usluga na domaćem tržištu,48982,107233,41032,14273,21005
+1007,Prihodi od prodaje proizvoda i usluga na inostranom tržištu,545,788,995,1335,1326
+1008,Prihodi od aktiviranja učinaka i robe,191,0,133,86,1
+1009,Povećanje vrednosti zaliha nedovršenih i gotovih proizvoda,0,0,0,0,0
+1010,Smanjenje vrednosti zaliha nedovršenih i gotovih proizvoda,0,0,0,0,0
+1011,Ostali poslovni prihodi,1200,0,2078,5573,8
+1012,Prihodi od usklađivanja vrednosti imovine (osim finansijske),0,0,0,0,0
+1013,POSLOVNI RASHODI,1550690,1752394,1678526,1038027,1224624
+1014,Nabavna vrednost prodate robe,1303391,1476266,1455836,915043,1057596
+1015,"Troškovi materijala, goriva i energije",11623,12258,14985,12472,12926
+1016,"TROŠKOVI ZARADA, NAKNADA ZARADA I OSTALI LIČNI RASHODI",105602,84434,56135,43287,70551
+1017,Troškovi zarada i naknada zarada,85527,68744,42659,0,0
+1018,Troškovi poreza i doprinosa na zarade i naknade zarada,12958,10968,6913,0,0
+1019,Ostali lični rashodi i naknade,7117,4722,6563,0,0
+1020,Troškovi amortizacije,13560,11926,10950,6021,5794
+1021,Rashodi od usklađivanja vrednosti imovine (osim finansijske),0,0,0,0,0
+1022,Troškovi proizvodnih usluga,85355,143710,104271,47084,65513
+1023,Troškovi rezervisanja,0,0,535,428,393
+1024,Nematerijalni troškovi,31159,23800,35814,13692,11851
+1025,POSLOVNI DOBITAK,50132,176496,86846,49157,45868
+1026,POSLOVNI GUBITAK,0,0,0,0,0
+1027,FINANSIJSKI PRIHODI,5924,7071,20816,204,16755
+1028,"Finansijski prihodi iz odnosa sa matičnim, zavisnim i ostalim povezanim licima",0,2500,0,80,8
+1029,Prihodi od kamata,4073,486,874,105,36
+1030,Pozitivne kursne razlike i pozitivni efekti valutne klauzule,91,1182,15,19,882
+1031,Ostali finansijski prihodi,1760,2903,19927,0,15829
+1032,FINANSIJSKI RASHODI,995,1842,4155,1870,2497
+1033,"Finansijski rashodi iz odnosa sa matičnim, zavisnim i ostalim povezanim licima",0,0,552,0,18
+1034,Rashodi kamata,527,1068,1608,1726,1617
+1035,Negativne kursne razlike i negativni efekti valutne klauzule,427,612,1860,90,644
+1036,Ostali finansijski rashodi,41,162,135,54,218
+1037,DOBITAK IZ FINANSIRANJA,4929,5229,16661,0,14258
+1038,GUBITAK IZ FINANSIRANJA,0,0,0,1666,0
+1039,Prihodi od usklađivanja vrednosti finansijske imovine koja se iskazuje po fer vrednosti kroz bilans uspeha,16043,0,12,38574,34971
+1040,Rashodi od usklađivanja vrednosti finansijske imovine koja se iskazuje po fer vrednosti kroz bilans uspeha,0,15758,3017,0,37679
+1041,Ostali prihodi,18860,32690,4233,32987,6401
+1042,Ostali rashodi,5624,6251,8353,2589,1497
+1043,UKUPNI PRIHODI,1641649,1968651,1790433,1158949,1328619
+1044,UKUPNI RASHODI,1557309,1776245,1694051,1042486,1266297
+1045,DOBITAK IZ REDOVNOG POSLOVANJA PRE OPOREZIVANJA,84340,192406,96382,116463,62322
+1046,GUBITAK IZ REDOVNOG POSLOVANJA PRE OPOREZIVANJA,0,0,0,0,0
+1047,"POZITIVAN NETO EFEKAT NA REZULTAT PO OSNOVU DOBITKA POSLOVANJA KOJE SE OBUSTAVLJA, PROMENA RAČUNOVODSTVENIH POLITIKA I ISPRAVKI GREŠAKA IZ RANIJIH PERIODA",0,21,0,26,284
+1048,"NEGATIVAN NETO EFEKAT NA REZULTAT PO OSNOVU GUBITKA POSLOVANJA KOJE SE OBUSTAVLJA, PROMENA RAČUNOVODSTVENIH POLITIKA I ISPRAVKI GREŠAKA IZ RANIJIH PERIODA",0,0,0,0,0
+1049,DOBITAK PRE OPOREZIVANJA,84340,192427,96382,116489,62606
+1050,GUBITAK PRE OPOREZIVANJA,0,0,0,0,0
+1051,Poreski rashod perioda,12701,28993,15195,18161,9595
+1052,Odloženi poreski rashodi perioda,336,0,0,0,0
+1053,Odloženi poreski prihodi perioda,0,25,536,191,152
+1054,ISPLAĆENA LIČNA PRIMANJA POSLODAVCA,0,0,0,0,0
+1055,NETO DOBITAK,71303,163459,81723,98519,53163
+1056,NETO GUBITAK,0,0,0,0,0
+1057,Neto dobitak koji pripada učešćima bez prava kontrole,0,0,0,0,0
+1058,Neto dobitak koji pripada matičnom pravnom licu,0,0,0,0,0
+1059,Neto gubitak koji pripada učešćima bez prava kontrole,0,0,0,0,0
+1060,Neto gubitak koji pripada matičnom pravnom licu,0,0,0,0,0
+1061,Osnovna zarada po akciji,0,0,0,0,0
+1062,Umanjena (razvodnjena) zarada po akciji,0,0,0,0,0
+9005,Prosečan broj zaposlenih na osnovu stanja krajem svakog meseca (ceo broj),61,61,52,45,48
