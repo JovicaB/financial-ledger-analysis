@@ -77,8 +77,46 @@ class ComponentsFR:
 
 
 class ComponentsLedger:
-    def __init__(self, data: pd.DataFrame) -> None:
-        self.data = data
 
-    def account_df(self, accounts: list) -> pd.DataFrame:
-        return self.data[self.data['account'].str.startswith(tuple(accounts))]
+    @staticmethod
+    def get_account_data(df: pd.DataFrame, account: str | list, debit_or_credit: str = 'all') -> pd.DataFrame:
+        """
+        Filter data based on the account(s) and optionally the debit or credit column.
+        
+        Parameters:
+        - account: A string or list of account prefixes to filter by.
+        - debit_or_credit: The column to filter by ('debit', 'credit', or 'all' for no filter). Default is 'all'.
+        
+        Returns:
+        - Filtered DataFrame with only the relevant columns.
+        """
+        if debit_or_credit not in ['debit', 'credit', 'all']:
+            raise ValueError("The argument 'debit_or_credit' must be 'debit', 'credit', or 'all'.")
+
+        df['account'] = df['account'].astype(str)
+
+        if isinstance(account, str):
+            filtered_data = df[df['account'].str.startswith(account)]
+        elif isinstance(account, list):
+            filtered_data = df[df['account'].str.startswith(tuple(account))]
+        else:
+            raise ValueError("The 'account' parameter must be a string or a list of strings.")
+
+        if debit_or_credit == 'debit':
+            filtered_data = filtered_data[['date', 'account', 'debit']]
+        elif debit_or_credit == 'credit':
+            filtered_data = filtered_data[['date', 'account', 'credit']]
+        else:
+            filtered_data = filtered_data[['date', 'account', 'debit', 'credit']]
+
+        return filtered_data
+
+    @staticmethod
+    def get_annual_data(df: pd.DataFrame, year: int):
+        return df[df['date'].dt.year == year]
+
+
+
+# df = pd.read_csv(r"data\csv\financial_journal_2019.csv")
+# df = ComponentsLedger.get_account_data(df, '6')
+# print(df)
