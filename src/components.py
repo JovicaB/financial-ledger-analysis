@@ -6,74 +6,86 @@ import pandas as pd
 class ComponentsFR:
     def __init__(self, data: pd.DataFrame) -> None:
         self.data = data
-    
-    def _get_aop_value(self, AOP: str, year_index: int) -> str:
-        df = self.data.iloc[:, 1:]
-        value = df.loc[self.data['AOP'] == AOP, df.columns[year_index]].values[0]
+        self.cache = {}
+
+    def _get_aop_value(self, AOP: str, year_index: int) -> int:
+        key = (AOP, year_index)
+        if key in self.cache:
+            return self.cache[key]
+        
+        year_column = f"year_{year_index}"
+        value = self.data.loc[self.data['AOP'] == AOP, year_column].values[0]
+        self.cache[key] = value
         return value
     
-    def zalihe(self, year: int) -> int:
-        return self._get_aop_value('0031', year)
+    def zalihe(self, year_index: int) -> int:
+        return self._get_aop_value('0031', year_index)
     
-    def obrtna_imovina(self, year: int) -> int:
-        return self._get_aop_value('0030', year)
+    def obrtna_imovina(self, year_index: int) -> int:
+        return self._get_aop_value('0030', year_index)
     
-    def kupci(self, year: int) -> int:
-        return self._get_aop_value('0038', year) 
+    def kupci(self, year_index: int) -> int:
+        return self._get_aop_value('0038', year_index) 
        
-    def kapital(self, year: int) -> int:
-        return self._get_aop_value('0401', year) - self._get_aop_value('0403', year) - self._get_aop_value('0455', year) 
+    def kapital(self, year_index: int) -> int:
+        return self._get_aop_value('0401', year_index) - self._get_aop_value('0403', year_index) - self._get_aop_value('0455', year_index) 
 
-    def kratkorocne_obaveze(self, year: int) -> int:
-        return self._get_aop_value('0431', year)
+    def kratkorocne_obaveze(self, year_index: int) -> int:
+        return self._get_aop_value('0431', year_index)
     
-    def ukupne_obaveze(self, year: int) -> int:
-        return self._get_aop_value('0420', year) + self._get_aop_value('0431', year) + self._get_aop_value('0432', year)
+    def ukupne_obaveze(self, year_index: int) -> int:
+        return self._get_aop_value('0420', year_index) + self._get_aop_value('0431', year_index) + self._get_aop_value('0432', year_index)
     
-    def ukupna_imovina(self, year: int) -> int:
-        return self._get_aop_value('0002', year) + self._get_aop_value('0030', year)
+    def ukupna_imovina(self, year_index: int) -> int:
+        return self._get_aop_value('0002', year_index) + self._get_aop_value('0030', year_index)
     
-    def poslovna_imovina(self, year: int) -> int:
-        return self._get_aop_value('0002', year) - self._get_aop_value('0018', year) + self._get_aop_value('0030', year) - self._get_aop_value('0048', year)
+    def poslovna_imovina(self, year_index: int) -> int:
+        return self._get_aop_value('0002', year_index) - self._get_aop_value('0018', year_index) + self._get_aop_value('0030', year_index) - self._get_aop_value('0048', year_index)
     
-    def dugorocne_obaveze(self, year: int) -> int:
-        return self._get_aop_value('0420', year)
+    def dugorocne_obaveze(self, year_index: int) -> int:
+        return self._get_aop_value('0420', year_index)
 
-    def poslovni_dobitak(self, year: int) -> int:
-        return self._get_aop_value('1025', year)
+    def poslovni_dobitak(self, year_index: int) -> int:
+        return self._get_aop_value('1025', year_index)
     
-    def neto_dobit(self, year: int) -> int:
-        return self._get_aop_value('1055', year) - self._get_aop_value('1056', year) + self._get_aop_value('1052', year) - self._get_aop_value('1053', year)
+    def neto_dobit(self, year_index: int) -> int:
+        return self._get_aop_value('1055', year_index) - self._get_aop_value('1056', year_index) + self._get_aop_value('1052', year_index) - self._get_aop_value('1053', year_index)
 
-    def poslovni_dobitak(self, year: int) -> int:
-        return self._get_aop_value('1025', year)
+    def poslovni_dobitak(self, year_index: int) -> int:
+        return self._get_aop_value('1025', year_index)
 
-    def prihod_od_prodaje(self, year: int) -> int:
-        return self._get_aop_value('1001', year)
+    def prihod_od_prodaje(self, year_index: int) -> int:
+        return self._get_aop_value('1001', year_index)
     
-    def prodaja(self, year: int) -> int:
-        return self._get_aop_value('1002', year) + self._get_aop_value('1005', year)
+    def prodaja(self, year_index: int) -> int:
+        return self._get_aop_value('1002', year_index) + self._get_aop_value('1005', year_index)
     
-    def nabavna_vrednost_prodate_robe(self, year: int) -> int:
-        return self._get_aop_value('1014', year)
+    def nabavna_vrednost_prodate_robe(self, year_index: int) -> int:
+        return self._get_aop_value('1014', year_index)
     
-    def obaveze_bez_rezervisanja(self, year: int) -> int:
-        return self._get_aop_value('0415', year) - self._get_aop_value('0416', year)
+    def obaveze_bez_rezervisanja(self, year_index: int) -> int:
+        return self._get_aop_value('0415', year_index) - self._get_aop_value('0416', year_index)
 
-    def ebitda(self, year: int) -> int:
-        return self._get_aop_value('1025', year) - self._get_aop_value('1026', year) + self._get_aop_value('1020', year)
+    def ebitda(self, year_index: int) -> int:
+        return self._get_aop_value('1025', year_index) - self._get_aop_value('1026', year_index) + self._get_aop_value('1020', year_index)
     
-    def prosecne_zalihe(self, year: int) -> int:
-        return (self._get_aop_value('0031', year) + self._get_aop_value('0031', year + 1)) / 2
+    def prosecne_zalihe(self, year_index: int) -> int:
+        zalihe_curr = self._get_aop_value('0031', year_index)
+        zalihe_next = self._get_aop_value('0031', year_index + 1)
+        return (zalihe_curr + zalihe_next) // 2
 
-    def prosecne_zalihe_robe(self, year: int) -> int:
-        return (self._get_aop_value('0034', year) + self._get_aop_value('0034', year + 1)) / 2
+    def prosecne_zalihe_robe(self, year_index: int) -> int:
+        zalihe_curr = self._get_aop_value('0034', year_index)
+        zalihe_next = self._get_aop_value('0034', year_index + 1)
+        return (zalihe_curr + zalihe_next) // 2
     
-    def prosecni_kupci(self, year: int) -> int:
-        return (self._get_aop_value('0038', year) + self._get_aop_value('0038', year + 1)) / 2
+    def prosecni_kupci(self, year_index: int) -> int:
+        kupci_curr = self._get_aop_value('0034', year_index)
+        kupci_next = self._get_aop_value('0034', year_index + 1)
+        return (kupci_curr + kupci_next) // 2
     
-    def broj_zaposlenih(self, year: int) -> int:
-        return self._get_aop_value('9005', year)
+    def broj_zaposlenih(self, year_index: int) -> int:
+        return self._get_aop_value('9005', year_index)
 
 
 class ComponentsLedger:
@@ -115,8 +127,32 @@ class ComponentsLedger:
     def get_annual_data(df: pd.DataFrame, year: int):
         return df[df['date'].dt.year == year]
 
+    @staticmethod
+    def calculate_percentage_changes_from_100(df, column):
+        percentage_changes = [100.0]
+        
+        for i in range(1, len(df)):
+            change = ((df[column].iloc[i] - df[column].iloc[i - 1]) / df[column].iloc[i - 1]) * 100
+            percentage_changes.append(round(change, 2))
+        
+        df[f'{column}_pct_change'] = percentage_changes
+        return df
 
 
-# df = pd.read_csv(r"data\csv\financial_journal_2019.csv")
-# df = ComponentsLedger.get_account_data(df, '6')
+
+
+# df = pd.read_parquet(r"data\parquet\financial_reports.parquet")
+# ComponentsFR(df)._get_aop_value('0002', 1)
+# print(ComponentsFR(df).prosecne_zalihe_robe(1))
+
+
+# data = {
+#     'year': [2019, 2020, 2021, 2022, 2023],
+#     'debit': [383534.00, 178067.35, 1210649.00, 14722612.50, 1619559.50]
+# }
+# df = pd.DataFrame(data)
+
+# # Apply the function
+# df = ComponentsLedger.calculate_percentage_changes_from_100(df, 'debit')
 # print(df)
+
