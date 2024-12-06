@@ -8,13 +8,13 @@ class ComponentsFR:
         self.data = data
         self.cache = {}
 
-    def _get_aop_value(self, AOP: str, year_index: int) -> int:
-        key = (AOP, year_index)
+    def _get_aop_value(self, AOP: str, year: int) -> int:
+        key = (AOP, year)
         if key in self.cache:
             return self.cache[key]
         
-        year_column = f"year_{year_index}"
-        value = self.data.loc[self.data['AOP'] == AOP, year_column].values[0]
+        # year_column = f"year_{year_index}"
+        value = self.data.loc[self.data['AOP'] == AOP, year].values[0]
         self.cache[key] = value
         return value
     
@@ -54,8 +54,8 @@ class ComponentsFR:
     def poslovni_dobitak(self, year_index: int) -> int:
         return self._get_aop_value('1025', year_index)
 
-    def prihod_od_prodaje(self, year_index: int) -> int:
-        return self._get_aop_value('1001', year_index)
+    def prihod_od_prodaje(self, year: int) -> int:
+        return self._get_aop_value('1001', year)
     
     def prodaja(self, year_index: int) -> int:
         return self._get_aop_value('1002', year_index) + self._get_aop_value('1005', year_index)
