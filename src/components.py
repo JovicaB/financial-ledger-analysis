@@ -230,10 +230,9 @@ class ComponentsLedger:
 # print(class_inst.sum_account_data_by_month('02', 'credit'))
 
 class RatioAnalysis:
-    def __init__(self, data: pd.DataFrame, fr_component_obj: Type[object] = ComponentsFR):
+    def __init__(self, data: pd.DataFrame, fr_component_obj: Type[object] = None):
         self.df = data
-        self.comp_obj = fr_component_obj
-
+        self.comp_obj = ComponentsFR(data)
    
     def current_ratio(self) -> list[float]:
         """Koeficijent likvidnosti za koga važi generalno pravilo da obrtna imovina 
