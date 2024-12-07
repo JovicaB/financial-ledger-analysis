@@ -230,7 +230,7 @@ class ComponentsLedger:
 # print(class_inst.sum_account_data_by_month('02', 'credit'))
 
 class RatioAnalysis:
-    def __init__(self, data: pd.DataFrame, fr_component_obj: Type[object] = None):
+    def __init__(self, data: pd.DataFrame, fr_component_obj: Type[object] = ComponentsFR):
         self.df = data
         self.comp_obj = fr_component_obj
 
