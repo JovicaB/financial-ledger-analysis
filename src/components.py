@@ -232,7 +232,7 @@ class ComponentsLedger:
 class RatioAnalysis:
     def __init__(self, data: pd.DataFrame, fr_component_obj: Type[object] = None):
         self.df = data
-        self.comp_obj = ComponentsFR(data)
+        self.comp_obj = fr_component_obj(data)
    
     def current_ratio(self) -> list[float]:
         """Koeficijent likvidnosti za koga važi generalno pravilo da obrtna imovina 
