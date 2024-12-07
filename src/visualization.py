@@ -75,7 +75,8 @@ class FinancialDataVisualization:
         axes[0].grid(axis='y', linestyle='--', alpha=0.6)
         axes[0].set_xticks(df_company_2row_normalized.columns)
 
-        df_competition_2row_normalized = df_company_2row.div(df_company_2row.max(axis=1), axis=0)
+        df_competition_2rows.index = ["bar_values", "line_values"]
+        df_competition_2row_normalized = df_competition_2rows.div(df_competition_2rows.max(axis=1), axis=0)
         axes[1].bar(df_competition_2row_normalized.columns, df_competition_2row_normalized.loc["line_values"], color='DarkGrey', alpha=0.7, label=description_main_var)
         axes[1].plot(df_competition_2row_normalized.columns, df_competition_2row_normalized.loc["bar_values"], marker='o', color='IndianRed', label="prihodi")
         axes[1].set_title(f"Poređenje: {description_main_var} i prihodi (konkurencija)", fontsize=10)
