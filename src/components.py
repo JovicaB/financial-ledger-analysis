@@ -503,9 +503,9 @@ class RatioAnalysis:
         return ratio_results
 
 
-df_fr = pd.read_parquet(r"data\parquet\financial_reports.parquet")
-components_class_obj = ComponentsFR(df_fr)
-ratio_analysis_class_obj = RatioAnalysis(df_fr, ComponentsFR)
+# df_fr = pd.read_parquet(r"data\parquet\financial_reports.parquet")
+# components_class_obj = ComponentsFR(df_fr)
+# ratio_analysis_class_obj = RatioAnalysis(df_fr, ComponentsFR)
 
 
-print(ratio_analysis_class_obj.current_ratio())
+# print(ratio_analysis_class_obj.current_ratio())
