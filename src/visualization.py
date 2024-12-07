@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 class FinancialDataVisualization:
 
     @staticmethod
-    def aggregate_data_for_comparative_visualization(df_companys_fr: pd.DataFrame, df_competitors_fr: pd.DataFrame, aop_code: str):
+    def aggregate_data_for_comparative_visualization(df_companys_fr: pd.DataFrame, df_competitors_fr: pd.DataFrame, aop_code: str, years: list):
         """
         Processes financial report (FR) data for a specific AOP (financial position reg.number) code, 
         generating separate datasets for the company's financial results and those of its competitors.
@@ -24,8 +24,10 @@ class FinancialDataVisualization:
         """
         if aop_code not in df_companys_fr['AOP'].values:
             raise ValueError(f"AOP code {aop_code} not found in company dataset.")
-        result_company_df_lst = df_companys_fr.loc[df_companys_fr['AOP'] == aop_code, years].iloc[0].to_list()
+
+        result_company_df_lst = df_companys_fr.loc[df_companys_fr['AOP'] == aop_code].iloc[0, 2:].to_list()
         result_company_df = pd.DataFrame([result_company_df_lst], columns=years)
+
         competitors_data_lst = df_competitors_fr.loc[df_competitors_fr['AOP'] == aop_code].iloc[0, 2:].to_list()
         competitors_data_lst.append(result_company_df_lst[-1])
         header = ['competitor_1', 'competitor_2', 'competitor_3', 'competitor_4', 'competitor_5', 'company']
@@ -87,3 +89,11 @@ class FinancialDataVisualization:
 
         plt.tight_layout()
         plt.show()
+
+
+## USAGE ##
+# df_comppany = pd.read_parquet(f"data/parquet/financial_reports.parquet")
+# df_competition = pd.read_parquet(f"data/parquet/competitors_fr.parquet")
+# years = [2019, 2020, 2021, 2022, 2023]
+
+# print(FinancialDataVisualization.aggregate_data_for_comparative_visualization(df_comppany, df_competition, '0002', years)[1])
