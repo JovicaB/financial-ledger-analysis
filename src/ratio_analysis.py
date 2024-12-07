@@ -2,6 +2,8 @@ from typing import Type
 
 import pandas as pd
 
+from components import ComponentsFR
+
 
 class RatioAnalysis:
     def __init__(self, data: pd.DataFrame, fr_component_obj: Type[object]):
