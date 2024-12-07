@@ -35,7 +35,7 @@ class FinancialDataVisualization:
 
     @staticmethod
     def comparative_analysis_visualization(df_company: pd.DataFrame, df_competitors: pd.DataFrame, opis: str):
-        plt.figure(figsize=(10, 4))
+        plt.figure(figsize=(16, 4))
         years = [2019, 2020, 2021, 2022, 2023]
 
         plt.subplot(1, 2, 1)
