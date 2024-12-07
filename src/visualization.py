@@ -79,7 +79,9 @@ class FinancialDataVisualization:
 
         df_competition_2rows.index = ["bar_values", "line_values"]
         df_competition_2row_normalized = df_competition_2rows.div(df_competition_2rows.max(axis=1), axis=0)
-        axes[1].bar(df_competition_2row_normalized.columns, df_competition_2row_normalized.loc["line_values"], color='DarkGrey', alpha=0.7, label=description_main_var)
+        bar_colors = ['DarkGray'] * 5 + ['MediumSeaGreen']
+        axes[1].bar(df_competition_2row_normalized.columns, df_competition_2row_normalized.loc["line_values"], color=bar_colors, alpha=0.7, label=description_main_var)
+        # axes[1].bar(df_competition_2row_normalized.columns, df_competition_2row_normalized.loc["line_values"], color='DarkGrey', alpha=0.7, label=description_main_var)
         axes[1].plot(df_competition_2row_normalized.columns, df_competition_2row_normalized.loc["bar_values"], marker='o', color='IndianRed', label="prihodi")
         axes[1].set_title(f"Poređenje: {description_main_var} i prihodi (konkurencija)", fontsize=10)
         axes[1].set_xlabel("Godina", fontsize=10)
