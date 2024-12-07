@@ -260,9 +260,9 @@ class RatioAnalysis:
         ratio_results = []
 
         for year in range(0, 5):
-            obrtna_imovina = self.components_class_obj.obrtna_imovina(year)
-            zalihe = self.components_class_obj.zalihe(year)
-            kratkorocne_obaveze = self.components_class_obj.kratkorocne_obaveze(year)
+            obrtna_imovina = self.comp_obj.obrtna_imovina(year)
+            zalihe = self.comp_obj.zalihe(year)
+            kratkorocne_obaveze = self.comp_obj.kratkorocne_obaveze(year)
 
             ratio_results.append(round(float((obrtna_imovina - zalihe) / kratkorocne_obaveze), 2))
 
