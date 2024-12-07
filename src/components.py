@@ -88,10 +88,10 @@ class ComponentsFR:
         return self._get_aop_value('9005', year_index)
 
 
-## USAGE ##
+# # USAGE ##
 # df = pd.read_parquet(r"data\parquet\financial_reports.parquet")
 # # ComponentsFR(df)._get_aop_value('0002', 1)
-# print(ComponentsFR(df).prihod_od_prodaje(1))
+# print(ComponentsFR(df).prihod_od_prodaje('year_1'))
 
 class ComponentsLedger:
     def __init__(self, data: pd.DataFrame) -> None:
@@ -241,7 +241,7 @@ class RatioAnalysis:
         """
         ratio_results = []
 
-        for year in range(0, 5):
+        for year in self.df.columns[2:]:
             obrtna_imovina = self.comp_obj.obrtna_imovina(year)
             kratkorocne_obaveze = self.comp_obj.kratkorocne_obaveze(year)
             ratio_results.append(round(float(obrtna_imovina / kratkorocne_obaveze), 2))
@@ -258,7 +258,7 @@ class RatioAnalysis:
         """
         ratio_results = []
 
-        for year in range(0, 5):
+        for year in self.df.columns[2:]:
             obrtna_imovina = self.comp_obj.obrtna_imovina(year)
             zalihe = self.comp_obj.zalihe(year)
             kratkorocne_obaveze = self.comp_obj.kratkorocne_obaveze(year)
@@ -277,7 +277,7 @@ class RatioAnalysis:
         """
         ratio_results = []
 
-        for year in range(0, 5):
+        for year in self.df.columns[2:]:
             ukupne_obaveze = self.components_class_obj.ukupne_obaveze(year)
             ukupna_imovina = self.components_class_obj.ukupna_imovina(year)
 
@@ -294,7 +294,7 @@ class RatioAnalysis:
         """
         ratio_results = []
 
-        for year in range(0, 5):
+        for year in self.df.columns[2:]:
             dugorocne_obaveze = self.components_class_obj.dugorocne_obaveze(year)
             ukupna_imovina = self.components_class_obj.ukupna_imovina(year)
 
@@ -308,7 +308,7 @@ class RatioAnalysis:
         # """Stopa sposobnosti prihoda da odbacuju poslovni dobitak."""
         ratio_results = []
 
-        for year in range(0, 5):
+        for year in self.df.columns[2:]:
             poslovni_dobitak = self.components_class_obj.poslovni_dobitak(year)
             prihodi_od_prodaje = self.components_class_obj.prihod_od_prodaje(year)
 
@@ -324,7 +324,7 @@ class RatioAnalysis:
         """
         ratio_results = []
 
-        for year in range(0, 5):
+        for year in self.df.columns[2:]:
             neto_dobit = self.components_class_obj.neto_dobit(year)
             prihodi_od_prodaje = prihodi_od_prodaje = self.components_class_obj.prihod_od_prodaje(year)
 
@@ -343,7 +343,7 @@ class RatioAnalysis:
         """
         ratio_results = []
 
-        for year in range(0, 5):
+        for year in self.df.columns[2:]:
             obaveze_bez_rezervisanja = self.components_class_obj.obaveze_bez_rezervisanja(year)
             measure_2 = self.components_class_obj._get_aop_value('0420', year) + self.components_class_obj._get_aop_value('0431', year) + self.components_class_obj._get_aop_value('0401', year) - self.components_class_obj._get_aop_value('0403', year) - self.components_class_obj._get_aop_value('0455', year)
             ratio_results.append(round(float(obaveze_bez_rezervisanja / measure_2), 2))
@@ -358,7 +358,7 @@ class RatioAnalysis:
 
         ratio_results = []
 
-        for year in range(0, 5):
+        for year in self.df.columns[2:]:
             poslovna_dobit = self.components_class_obj.poslovni_dobitak(year)
             poslovna_imovina = self.components_class_obj.poslovna_imovina(year)
             ratio_results.append(round(float(poslovna_dobit / poslovna_imovina), 2))
@@ -372,7 +372,7 @@ class RatioAnalysis:
 
         ratio_results = []
 
-        for year in range(0, 5):
+        for year in self.df.columns[2:]:
             neto_dobit = self.components_class_obj.neto_dobit(year)
             prihodi_od_prodaje = self.components_class_obj.prihod_od_prodaje(year)
             ratio_results.append(round(float(neto_dobit / prihodi_od_prodaje), 2))
@@ -386,7 +386,7 @@ class RatioAnalysis:
 
         ratio_results = []
 
-        for year in range(0, 5):
+        for year in self.df.columns[2:]:
             neto_dobit = self.components_class_obj.neto_dobit(year)
             kapital = self.components_class_obj.kapital(year)
             ratio_results.append(round(float(neto_dobit / kapital), 2))
@@ -402,7 +402,7 @@ class RatioAnalysis:
         """
         ratio_results = []
 
-        for year in range(0, 5):
+        for year in self.df.columns[2:]:
             measure_1 = self.components_class_obj._get_aop_value('0420', year) + self.components_class_obj._get_aop_value('0431', year)
             measure_2 = self.components_class_obj._get_aop_value('0401', year) - self.components_class_obj._get_aop_value('0403', year)  + self.components_class_obj._get_aop_value('0455', year)
             ratio_results.append(round(float(measure_1 / measure_2), 2))
@@ -418,7 +418,7 @@ class RatioAnalysis:
         """
         ratio_results = []
 
-        for year in range(0, 5):
+        for year in self.df.columns[2:]:
             measure_1 = self.components_class_obj._get_aop_value('0002', year) + self.components_class_obj._get_aop_value('0031', year)
             measure_2 = self.components_class_obj._get_aop_value('0401', year) - self.components_class_obj._get_aop_value('0403', year) - self.components_class_obj._get_aop_value('0455', year) + self.components_class_obj._get_aop_value('0415', year)
 
@@ -432,7 +432,7 @@ class RatioAnalysis:
 
         ratio_results = []
 
-        for year in range(0, 5):
+        for year in self.df.columns[2:]:
             ebitda = self.components_class_obj.ebitda(year)        
             prihodi_od_prodaje = prihodi_od_prodaje = self.components_class_obj.prihod_od_prodaje(year)
 
@@ -448,7 +448,7 @@ class RatioAnalysis:
         """
         ratio_results = []
 
-        for year in range(0, 5):
+        for year in self.df.columns[2:]:
             broj_zaposlenih = self.components_class_obj.broj_zaposlenih(year)
 
             ratio_results.append(round(int(broj_zaposlenih), 2))
@@ -463,7 +463,7 @@ class RatioAnalysis:
         """
         ratio_results = []
 
-        for year in range(0, 4):
+        for year in self.df.columns[2:-2]:
             prihod_od_prodaje = self.components_class_obj.prihod_od_prodaje(year)
             prosecne_zalihe = self.components_class_obj.prosecne_zalihe(year)
             ratio_results.append(round(float(prihod_od_prodaje/prosecne_zalihe), 2))
@@ -478,7 +478,7 @@ class RatioAnalysis:
         """
         ratio_results = []
 
-        for year in range(0, 4):
+        for year in self.df.columns[2:-2]:
             nabavna_vrednost_prodate_robe = self.components_class_obj.nabavna_vrednost_prodate_robe(year)
             prosecne_zalihe_robe = self.components_class_obj.prosecne_zalihe_robe(year)
             ratio_results.append(round(float(nabavna_vrednost_prodate_robe/prosecne_zalihe_robe), 2))
@@ -493,7 +493,7 @@ class RatioAnalysis:
         """
         ratio_results = []
 
-        for year in range(0, 4):
+        for year in self.df.columns[2:-2]:
             prodaja = self.components_class_obj.prodaja(year)
             prosecni_kupci = self.components_class_obj.prosecni_kupci(year)
             ratio_results.append(round(float(prodaja/prosecni_kupci), 2))
@@ -503,3 +503,9 @@ class RatioAnalysis:
         return ratio_results
 
 
+df_fr = pd.read_parquet(r"data\parquet\financial_reports.parquet")
+components_class_obj = ComponentsFR(df_fr)
+ratio_analysis_class_obj = RatioAnalysis(df_fr, ComponentsFR)
+
+
+print(ratio_analysis_class_obj.current_ratio())
