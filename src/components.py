@@ -278,8 +278,8 @@ class RatioAnalysis:
         ratio_results = []
 
         for year in self.df.columns[2:]:
-            ukupne_obaveze = self.components_class_obj.ukupne_obaveze(year)
-            ukupna_imovina = self.components_class_obj.ukupna_imovina(year)
+            ukupne_obaveze = self.comp_obj.ukupne_obaveze(year)
+            ukupna_imovina = self.comp_obj.ukupna_imovina(year)
 
             ratio_results.append(round(float(ukupne_obaveze / ukupna_imovina), 2))
 
@@ -295,8 +295,8 @@ class RatioAnalysis:
         ratio_results = []
 
         for year in self.df.columns[2:]:
-            dugorocne_obaveze = self.components_class_obj.dugorocne_obaveze(year)
-            ukupna_imovina = self.components_class_obj.ukupna_imovina(year)
+            dugorocne_obaveze = self.comp_obj.dugorocne_obaveze(year)
+            ukupna_imovina = self.comp_obj.ukupna_imovina(year)
 
             ratio_results.append(round(float(dugorocne_obaveze / ukupna_imovina), 2))
 
@@ -309,8 +309,8 @@ class RatioAnalysis:
         ratio_results = []
 
         for year in self.df.columns[2:]:
-            poslovni_dobitak = self.components_class_obj.poslovni_dobitak(year)
-            prihodi_od_prodaje = self.components_class_obj.prihod_od_prodaje(year)
+            poslovni_dobitak = self.comp_obj.poslovni_dobitak(year)
+            prihodi_od_prodaje = self.comp_obj.prihod_od_prodaje(year)
 
             ratio_results.append(round(float(poslovni_dobitak / prihodi_od_prodaje), 2))
 
@@ -325,8 +325,8 @@ class RatioAnalysis:
         ratio_results = []
 
         for year in self.df.columns[2:]:
-            neto_dobit = self.components_class_obj.neto_dobit(year)
-            prihodi_od_prodaje = prihodi_od_prodaje = self.components_class_obj.prihod_od_prodaje(year)
+            neto_dobit = self.comp_obj.neto_dobit(year)
+            prihodi_od_prodaje = prihodi_od_prodaje = self.comp_obj.prihod_od_prodaje(year)
 
             ratio_results.append(round(float(neto_dobit / prihodi_od_prodaje), 2))
 
@@ -344,8 +344,8 @@ class RatioAnalysis:
         ratio_results = []
 
         for year in self.df.columns[2:]:
-            obaveze_bez_rezervisanja = self.components_class_obj.obaveze_bez_rezervisanja(year)
-            measure_2 = self.components_class_obj._get_aop_value('0420', year) + self.components_class_obj._get_aop_value('0431', year) + self.components_class_obj._get_aop_value('0401', year) - self.components_class_obj._get_aop_value('0403', year) - self.components_class_obj._get_aop_value('0455', year)
+            obaveze_bez_rezervisanja = self.comp_obj.obaveze_bez_rezervisanja(year)
+            measure_2 = self.comp_obj._get_aop_value('0420', year) + self.components_class_obj._get_aop_value('0431', year) + self.components_class_obj._get_aop_value('0401', year) - self.components_class_obj._get_aop_value('0403', year) - self.components_class_obj._get_aop_value('0455', year)
             ratio_results.append(round(float(obaveze_bez_rezervisanja / measure_2), 2))
 
         ratio_results.reverse()
@@ -359,8 +359,8 @@ class RatioAnalysis:
         ratio_results = []
 
         for year in self.df.columns[2:]:
-            poslovna_dobit = self.components_class_obj.poslovni_dobitak(year)
-            poslovna_imovina = self.components_class_obj.poslovna_imovina(year)
+            poslovna_dobit = self.comp_obj.poslovni_dobitak(year)
+            poslovna_imovina = self.comp_obj.poslovna_imovina(year)
             ratio_results.append(round(float(poslovna_dobit / poslovna_imovina), 2))
 
         ratio_results.reverse()
@@ -373,8 +373,8 @@ class RatioAnalysis:
         ratio_results = []
 
         for year in self.df.columns[2:]:
-            neto_dobit = self.components_class_obj.neto_dobit(year)
-            prihodi_od_prodaje = self.components_class_obj.prihod_od_prodaje(year)
+            neto_dobit = self.comp_obj.neto_dobit(year)
+            prihodi_od_prodaje = self.comp_obj.prihod_od_prodaje(year)
             ratio_results.append(round(float(neto_dobit / prihodi_od_prodaje), 2))
 
         ratio_results.reverse()
@@ -387,8 +387,8 @@ class RatioAnalysis:
         ratio_results = []
 
         for year in self.df.columns[2:]:
-            neto_dobit = self.components_class_obj.neto_dobit(year)
-            kapital = self.components_class_obj.kapital(year)
+            neto_dobit = self.comp_obj.neto_dobit(year)
+            kapital = self.comp_obj.kapital(year)
             ratio_results.append(round(float(neto_dobit / kapital), 2))
 
         ratio_results.reverse()
@@ -403,8 +403,8 @@ class RatioAnalysis:
         ratio_results = []
 
         for year in self.df.columns[2:]:
-            measure_1 = self.components_class_obj._get_aop_value('0420', year) + self.components_class_obj._get_aop_value('0431', year)
-            measure_2 = self.components_class_obj._get_aop_value('0401', year) - self.components_class_obj._get_aop_value('0403', year)  + self.components_class_obj._get_aop_value('0455', year)
+            measure_1 = self.comp_obj._get_aop_value('0420', year) + self.comp_obj._get_aop_value('0431', year)
+            measure_2 = self.comp_obj._get_aop_value('0401', year) - self.comp_obj._get_aop_value('0403', year)  + self.comp_obj._get_aop_value('0455', year)
             ratio_results.append(round(float(measure_1 / measure_2), 2))
 
         ratio_results.reverse()
@@ -419,8 +419,8 @@ class RatioAnalysis:
         ratio_results = []
 
         for year in self.df.columns[2:]:
-            measure_1 = self.components_class_obj._get_aop_value('0002', year) + self.components_class_obj._get_aop_value('0031', year)
-            measure_2 = self.components_class_obj._get_aop_value('0401', year) - self.components_class_obj._get_aop_value('0403', year) - self.components_class_obj._get_aop_value('0455', year) + self.components_class_obj._get_aop_value('0415', year)
+            measure_1 = self.comp_obj._get_aop_value('0002', year) + self.comp_obj._get_aop_value('0031', year)
+            measure_2 = self.comp_obj._get_aop_value('0401', year) - self.comp_obj._get_aop_value('0403', year) - self.comp_obj._get_aop_value('0455', year) + self.comp_obj._get_aop_value('0415', year)
 
             ratio_results.append(round(float(measure_1 / measure_2), 2))
 
@@ -433,8 +433,8 @@ class RatioAnalysis:
         ratio_results = []
 
         for year in self.df.columns[2:]:
-            ebitda = self.components_class_obj.ebitda(year)        
-            prihodi_od_prodaje = prihodi_od_prodaje = self.components_class_obj.prihod_od_prodaje(year)
+            ebitda = self.comp_obj.ebitda(year)        
+            prihodi_od_prodaje = prihodi_od_prodaje = self.comp_obj.prihod_od_prodaje(year)
 
             ratio_results.append(round(float(ebitda / prihodi_od_prodaje), 2))
 
@@ -449,7 +449,7 @@ class RatioAnalysis:
         ratio_results = []
 
         for year in self.df.columns[2:]:
-            broj_zaposlenih = self.components_class_obj.broj_zaposlenih(year)
+            broj_zaposlenih = self.comp_obj.broj_zaposlenih(year)
 
             ratio_results.append(round(int(broj_zaposlenih), 2))
 
@@ -464,8 +464,8 @@ class RatioAnalysis:
         ratio_results = []
 
         for year in self.df.columns[2:-2]:
-            prihod_od_prodaje = self.components_class_obj.prihod_od_prodaje(year)
-            prosecne_zalihe = self.components_class_obj.prosecne_zalihe(year)
+            prihod_od_prodaje = self.comp_obj.prihod_od_prodaje(year)
+            prosecne_zalihe = self.comp_obj.prosecne_zalihe(year)
             ratio_results.append(round(float(prihod_od_prodaje/prosecne_zalihe), 2))
 
         ratio_results.reverse()
@@ -479,8 +479,8 @@ class RatioAnalysis:
         ratio_results = []
 
         for year in self.df.columns[2:-2]:
-            nabavna_vrednost_prodate_robe = self.components_class_obj.nabavna_vrednost_prodate_robe(year)
-            prosecne_zalihe_robe = self.components_class_obj.prosecne_zalihe_robe(year)
+            nabavna_vrednost_prodate_robe = self.comp_obj.nabavna_vrednost_prodate_robe(year)
+            prosecne_zalihe_robe = self.comp_obj.prosecne_zalihe_robe(year)
             ratio_results.append(round(float(nabavna_vrednost_prodate_robe/prosecne_zalihe_robe), 2))
 
         ratio_results.reverse()
@@ -494,8 +494,8 @@ class RatioAnalysis:
         ratio_results = []
 
         for year in self.df.columns[2:-2]:
-            prodaja = self.components_class_obj.prodaja(year)
-            prosecni_kupci = self.components_class_obj.prosecni_kupci(year)
+            prodaja = self.comp_obj.prodaja(year)
+            prosecni_kupci = self.comp_obj.prosecni_kupci(year)
             ratio_results.append(round(float(prodaja/prosecni_kupci), 2))
 
         ratio_results.reverse()
