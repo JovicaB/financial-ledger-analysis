@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 class FinancialDataVisualization:
 
     @staticmethod
-    def prepare_data_for_comparative_visualization(df_companys_fr: pd.DataFrame, df_competitors_fr: pd.DataFrame, aop_code: str):
+    def aggregate_data_for_comparative_visualization(df_companys_fr: pd.DataFrame, df_competitors_fr: pd.DataFrame, aop_code: str):
         """
         Processes financial report (FR) data for a specific AOP (financial position reg.number) code, 
         generating separate datasets for the company's financial results and those of its competitors.
@@ -61,5 +61,27 @@ class FinancialDataVisualization:
         plt.show()
 
     @staticmethod
-    def comparative_analysis_visualization_with_revenue(df_company: pd.DataFrame, df_competitors: pd.DataFrame, opis: str, df_company_revenue: pd.DataFrame, df_competitors_revenue: pd.DataFrame):
-        pass
+    def comparative_analysis_visualization_with_revenue(df_company_2row: pd.DataFrame, df_competition_2rows: pd.DataFrame, description_main_var: str):  
+        fig, axes = plt.subplots(1, 2, figsize=(16, 4))
+
+        df_company_2row_normalized = df_company_2row.div(df_company_2row.max(axis=1), axis=0)
+        axes[0].bar(df_company_2row_normalized.columns, df_company_2row_normalized.loc["bar_values"], color='CadetBlue', alpha=0.7, label=description_main_var)
+        axes[0].plot(df_company_2row_normalized.columns, df_company_2row_normalized.loc["line_values"], marker='o', color='IndianRed', label="prihodi")
+        axes[0].set_title(f"Poređenje: {description_main_var} i prihodi (poslednjih 5 godina poslovanja)", fontsize=10)
+        axes[0].set_xlabel("Godina", fontsize=10)
+        axes[0].set_ylabel("Relativna vrednost", fontsize=10)
+        axes[0].legend()
+        axes[0].grid(axis='y', linestyle='--', alpha=0.6)
+        axes[0].set_xticks(df_company_2row_normalized.columns)
+
+        df_competition_2row_normalized = df_competition_2rows.div(df_competition_2rows.max(axis=1), axis=0)
+        axes[1].bar(df_competition_2row_normalized.columns, df_competition_2row_normalized.loc["line_values"], color='DarkGrey', alpha=0.7, label=description_main_var)
+        axes[1].plot(df_competition_2row_normalized.columns, df_competition_2row_normalized.loc["bar_values"], marker='o', color='IndianRed', label="prihodi")
+        axes[1].set_title(f"Poređenje: {description_main_var} i prihodi (konkurencija)", fontsize=10)
+        axes[1].set_xlabel("Godina", fontsize=10)
+        axes[1].legend()
+        axes[1].grid(axis='y', linestyle='--', alpha=0.6)
+        axes[1].set_xticks(df_competition_2row_normalized.columns)
+
+        plt.tight_layout()
+        plt.show()
