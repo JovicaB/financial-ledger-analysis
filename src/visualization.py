@@ -101,7 +101,9 @@ class FinancialDataVisualization:
         axes[1].set_xlabel("Godina", fontsize=10)
         axes[1].legend()
         axes[1].grid(axis='y', linestyle='--', alpha=0.6)
-        axes[1].set_xticks(bar_labels)
+        # axes[1].set_xticks(bar_labels)
+        axes[1].set_xticks(range(len(bar_labels)))
+        axes[1].set_xticklabels(bar_labels, rotation=45)
 
         plt.tight_layout()
         plt.show()
