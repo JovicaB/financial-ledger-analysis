@@ -1,26 +1,22 @@
 import pandas as pd
 import matplotlib.pyplot as plt
+import seaborn as sb
+
 
 class FinancialDataVisualization:
 
     @staticmethod
     def aggregate_data_for_comparative_visualization(df_companys_fr: pd.DataFrame, df_competitors_fr: pd.DataFrame, aop_code: str, years: list):
         """
-        Processes financial report (FR) data for a specific AOP (financial position reg.number) code, 
-        generating separate datasets for the company's financial results and those of its competitors.
+        Aggregates financial data for the company and its competitors for a specific AOP code.
 
         Args:
-            df_companys_fr (pd.DataFrame)
-            df_competitors_fr (pd.DataFrame)
-            aop_code (str)
+            df_companys_fr (pd.DataFrame): Company financial data.
+            df_competitors_fr (pd.DataFrame): Competitors' financial data.
+            aop_code (str): The AOP code to filter data.
 
         Returns:
-            tuple: A tuple containing:
-                - result_company_df (pd.DataFrame): DataFrame with a single row representing the company's financial data 
-                across the years 2019 to 2023.
-                - result_competitors_data_df (pd.DataFrame): DataFrame with a single row containing financial data for 
-                competitors and the company for the same period.
-        years = [2019, 2020, 2021, 2022, 2023]
+            tuple: (result_company_df, result_competitors_data_df) - Processed dataframes.
         """
         if aop_code not in df_companys_fr['AOP'].values:
             raise ValueError(f"AOP code {aop_code} not found in company dataset.")
@@ -37,6 +33,14 @@ class FinancialDataVisualization:
 
     @staticmethod
     def comparative_analysis_visualization(df_company: pd.DataFrame, df_competitors: pd.DataFrame, opis: str):
+        """
+        Creates a comparative line and bar chart of company performance vs competitors.
+
+        Args:
+            df_company (pd.DataFrame): Company data for plotting.
+            df_competitors (pd.DataFrame): Competitors' data for plotting.
+            opis (str): Variable to be analyzed.
+        """
         plt.figure(figsize=(16, 4))
         years = [2019, 2020, 2021, 2022, 2023]
 
@@ -64,6 +68,14 @@ class FinancialDataVisualization:
 
     @staticmethod
     def comparative_analysis_visualization_with_revenue(df_company_2row: pd.DataFrame, df_competition_2rows: pd.DataFrame, description_main_var: str):  
+        """
+        Visualizes comparison between company data and competitors, including revenue.
+
+        Args:
+            df_company_2row (pd.DataFrame): Company data with two rows.
+            df_competition_2rows (pd.DataFrame): Competitors' data with two rows.
+            description_main_var (str): Main variable for comparison.
+        """
         fig, axes = plt.subplots(1, 2, figsize=(16, 4))
         df_company_2row.index = ["bar_values", "line_values"]
 
@@ -81,7 +93,6 @@ class FinancialDataVisualization:
         df_competition_2row_normalized = df_competition_2rows.div(df_competition_2rows.max(axis=1), axis=0)
         bar_colors = ['DarkGray'] * 5 + ['MediumSeaGreen']
         axes[1].bar(df_competition_2row_normalized.columns, df_competition_2row_normalized.loc["line_values"], color=bar_colors, alpha=0.7, label=description_main_var)
-        # axes[1].bar(df_competition_2row_normalized.columns, df_competition_2row_normalized.loc["line_values"], color='DarkGrey', alpha=0.7, label=description_main_var)
         axes[1].plot(df_competition_2row_normalized.columns, df_competition_2row_normalized.loc["bar_values"], marker='o', color='IndianRed', label="prihodi")
         axes[1].set_title(f"Poređenje: {description_main_var} i prihodi (konkurencija)", fontsize=10)
         axes[1].set_xlabel("Godina", fontsize=10)
@@ -92,10 +103,47 @@ class FinancialDataVisualization:
         plt.tight_layout()
         plt.show()
 
+    @staticmethod
+    def barplot_ratio_analysis(company_df, competitors_df, ratio_text: str, last_bar_color='g'):
+        """
+        Creates two bar charts: one for annual performance comparison and one for comparison with competitors.
 
-## USAGE ##
-# df_comppany = pd.read_parquet(f"data/parquet/financial_reports.parquet")
-# df_competition = pd.read_parquet(f"data/parquet/competitors_fr.parquet")
-# years = [2019, 2020, 2021, 2022, 2023]
+        Args:
+            company_df (pd.DataFrame): Company performance data.
+            competitors_df (pd.DataFrame): Competitors' performance data.
+            ratio_text (str): The ratio to be analyzed.
+            last_bar_color (str): Color for the last bar (company). Default is 'g' (green).
 
-# print(FinancialDataVisualization.aggregate_data_for_comparative_visualization(df_comppany, df_competition, '0002', years)[1])
+        Returns:
+            None: Displays the generated plots.
+        """
+        if last_bar_color == 'g':
+            last_bar_color = (107/255, 179/255, 139/255, 1)
+        elif last_bar_color == 'r':
+            last_bar_color = 'IndianRed'
+        else:
+            ValueError("Use 'g' or 'r' only")
+
+        fig, axes = plt.subplots(1, 2, figsize=(10, 3.5))
+
+        # Left plot
+        sb.barplot(x=company_df.columns, y=company_df.iloc[0], ax=axes[0], color=(133/255, 145/255, 155/255, 1))
+        axes[0].set_title(f'Petogodišnji {ratio_text}', fontsize=10)
+        axes[0].set_xlabel('Godina', fontsize=9)
+        axes[0].set_ylabel(ratio_text, fontsize=9)
+
+        # Right plot
+        sb.barplot(x=competitors_df.columns, y=competitors_df.iloc[0], ax=axes[1], color='Silver')
+        company_value = competitors_df['company'].iloc[0]
+
+        for patch in axes[1].patches:
+            if patch.get_x() == competitors_df.columns.get_loc('company') - 0.4: 
+                patch.set_facecolor(last_bar_color)
+
+        axes[1].set_title(f"{ratio_text} poređenje sa konkurencijom", fontsize=10)
+        axes[1].set_xlabel('Competitors / Company', fontsize=9)
+        axes[1].tick_params(axis='x', rotation=45)
+        axes[1].set_ylabel(ratio_text, fontsize=9)
+
+        plt.tight_layout()
+        plt.show()
