@@ -26,7 +26,8 @@ class FinancialDataVisualization:
 
         competitors_data_lst = df_competitors_fr.loc[df_competitors_fr['AOP'] == aop_code].iloc[0, 2:].to_list()
         competitors_data_lst.append(result_company_df_lst[-1])
-        header = ['competitor_1', 'competitor_2', 'competitor_3', 'competitor_4', 'competitor_5', 'company']
+        # header = ['competitor_1', 'competitor_2', 'competitor_3', 'competitor_4', 'competitor_5', 'company']
+        header = ['konkurent #1', 'konkurent #2', 'konkurent #3', 'konkurent #4', 'konkurent #5', 'kompanija']
         result_competitors_data_df = pd.DataFrame([competitors_data_lst], columns=header)
 
         return result_company_df, result_competitors_data_df
@@ -54,7 +55,8 @@ class FinancialDataVisualization:
         plt.legend()
 
         plt.subplot(1, 2, 2)
-        bar_labels = df_competitors.columns
+        # bar_labels = df_competitors.columns
+        bar_labels = ['konkurent #1', 'konkurent #2', 'konkurent #3', 'konkurent #4', 'konkurent #5', 'kompanija']
         bar_values = df_competitors.loc[0]
         bar_colors = ['DarkGray'] * 5 + ['MediumSeaGreen']
         plt.bar(bar_labels, bar_values, color=bar_colors)
