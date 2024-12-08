@@ -91,6 +91,7 @@ class FinancialDataVisualization:
         axes[0].grid(axis='y', linestyle='--', alpha=0.6)
         axes[0].set_xticks(df_company_2row_normalized.columns)
 
+        bar_labels = ['konkurent #1', 'konkurent #2', 'konkurent #3', 'konkurent #4', 'konkurent #5', 'kompanija']
         df_competition_2rows.index = ["bar_values", "line_values"]
         df_competition_2row_normalized = df_competition_2rows.div(df_competition_2rows.max(axis=1), axis=0)
         bar_colors = ['DarkGray'] * 5 + ['MediumSeaGreen']
@@ -100,7 +101,7 @@ class FinancialDataVisualization:
         axes[1].set_xlabel("Godina", fontsize=10)
         axes[1].legend()
         axes[1].grid(axis='y', linestyle='--', alpha=0.6)
-        axes[1].set_xticks(df_competition_2row_normalized.columns)
+        axes[1].set_xticks(bar_labels)
 
         plt.tight_layout()
         plt.show()
