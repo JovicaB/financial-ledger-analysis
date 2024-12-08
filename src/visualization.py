@@ -143,7 +143,7 @@ class FinancialDataVisualization:
                 patch.set_facecolor(last_bar_color)
 
         axes[1].set_title(f"{ratio_text} poređenje sa konkurencijom", fontsize=10)
-        # axes[1].set_xlabel('Competitors / Company', fontsize=9)
+        axes[1].set_xlabel('Konkurencija / kompanija', fontsize=9)
         axes[1].tick_params(axis='x', rotation=45)
         axes[1].set_ylabel(ratio_text, fontsize=9)
 
