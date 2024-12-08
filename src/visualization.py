@@ -144,11 +144,14 @@ class FinancialDataVisualization:
         for patch in axes[1].patches:
             if patch.get_x() == competitors_df.columns.get_loc('company') - 0.4: 
                 patch.set_facecolor(last_bar_color)
-
+        
+        bar_labels = ['konkurent #1', 'konkurent #2', 'konkurent #3', 'konkurent #4', 'konkurent #5', 'kompanija']
         axes[1].set_title(f"{ratio_text} poređenje sa konkurencijom", fontsize=10)
         axes[1].set_xlabel('Konkurencija / kompanija', fontsize=9)
         axes[1].tick_params(axis='x', rotation=45)
         axes[1].set_ylabel(ratio_text, fontsize=9)
+        axes[1].set_xticks(range(len(bar_labels)))
+        axes[1].set_xticklabels(bar_labels, rotation=45)
 
         plt.tight_layout()
         plt.show()
