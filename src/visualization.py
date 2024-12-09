@@ -79,7 +79,7 @@ class FinancialDataVisualization:
             description_main_var (str): Main variable for comparison.
         """
         fig, axes = plt.subplots(1, 2, figsize=(16, 4))
-        fig.suptitle(f"Poređenje: {description_main_var} i prihodi (poslednjih 5 godina poslovanja)", fontsize=16)
+        # fig.suptitle(f"Poređenje: {description_main_var} i prihodi (poslednjih 5 godina poslovanja)", fontsize=16)
         df_company_2row.index = ["bar_values", "line_values"]
 
         df_company_2row_normalized = df_company_2row.div(df_company_2row.max(axis=1), axis=0)
@@ -131,7 +131,7 @@ class FinancialDataVisualization:
             ValueError("Use 'g' or 'r' only")
 
         fig, axes = plt.subplots(1, 2, figsize=(10, 3.5))
-        fig.suptitle(f"Poređenje: {ratio_text} tokom 5 godina", fontsize=16)
+        # fig.suptitle(f"Poređenje: {ratio_text} tokom 5 godina", fontsize=16)
         # Left plot
         sb.barplot(x=company_df.columns, y=company_df.iloc[0], ax=axes[0], color=(133/255, 145/255, 155/255, 1))
         axes[0].set_title(f'Petogodišnji {ratio_text}', fontsize=10)
