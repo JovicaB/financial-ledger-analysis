@@ -66,7 +66,7 @@ class FinancialDataVisualization:
         plt.grid(axis='y', linestyle='--', alpha=0.6)
 
         plt.tight_layout()
-        plt.show()
+        # plt.show()
 
     @staticmethod
     def comparative_analysis_visualization_with_revenue(df_company_2row: pd.DataFrame, df_competition_2rows: pd.DataFrame, description_main_var: str):  
@@ -79,6 +79,7 @@ class FinancialDataVisualization:
             description_main_var (str): Main variable for comparison.
         """
         fig, axes = plt.subplots(1, 2, figsize=(16, 4))
+        fig.suptitle(f"Poređenje: {description_main_var} i prihodi (poslednjih 5 godina poslovanja)", fontsize=12)
         df_company_2row.index = ["bar_values", "line_values"]
 
         df_company_2row_normalized = df_company_2row.div(df_company_2row.max(axis=1), axis=0)
