@@ -29,7 +29,6 @@ class FinancialDataVisualization:
         # header = ['competitor_1', 'competitor_2', 'competitor_3', 'competitor_4', 'competitor_5', 'company']
         header = ['konkurent #1', 'konkurent #2', 'konkurent #3', 'konkurent #4', 'konkurent #5', 'kompanija']
         result_competitors_data_df = pd.DataFrame([competitors_data_lst], columns=header)
-        plt.xlabel('')
         return result_company_df, result_competitors_data_df
 
     @staticmethod
