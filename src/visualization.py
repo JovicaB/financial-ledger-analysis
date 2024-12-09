@@ -47,7 +47,7 @@ class FinancialDataVisualization:
 
         plt.subplot(1, 2, 1)
         plt.plot(years, df_company.loc[0].values, marker='o', color='MediumSeaGreen', label="Kompanija")
-        plt.title(f"Poređenje: {opis} tokom 5 godina", fontsize=10)
+        # plt.title(f"Poređenje: {opis} tokom 5 godina", fontsize=10)
         plt.xlabel(opis, fontsize=8)
         plt.ylabel(opis, fontsize=8)
         plt.grid(True, linestyle='--', alpha=0.6)
