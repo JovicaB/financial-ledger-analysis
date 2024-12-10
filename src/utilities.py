@@ -73,9 +73,9 @@ class Utilities:
 
         conn.close()
 
-database_name = "C:\\xxx.db"
-description = "Sample description"
-data = {"key1": "value1", "key2": [1, 2, 3]}
-Utilities.save_results(database_name, description, data)
+# database_name = "C:\\xxx.db"
+# description = "Sample description"
+# data = {"key1": "value1", "key2": [1, 2, 3]}
+# Utilities.save_results(database_name, description, data)
 # print(Utilities.get_account_description("02255"))
 # Utilities.convert_csv_to_parquet(r'data\csv\financial_journal_2019.csv')
