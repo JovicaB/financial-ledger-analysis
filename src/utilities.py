@@ -44,7 +44,7 @@ class Utilities:
         conn = sqlite3.connect(database_fullname)
 
         # Insert the result into the existing table
-        conn.execute("INSERT INTO results (description, data) VALUES (?, ?)", 
+        conn.execute("INSERT INTO results (description, result) VALUES (?, ?)", 
                      (description, str(result_converted)))  # Store as a string
         conn.commit()
         conn.close()
