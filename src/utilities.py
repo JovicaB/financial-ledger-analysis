@@ -37,19 +37,7 @@ class Utilities:
 
     @staticmethod
     def save_results(database_fullname: str, description: str, result: Any):
-        directory = os.path.dirname(database_fullname)
-        if not os.path.exists(directory):
-            os.makedirs(directory)
-
         conn = sqlite3.connect(database_fullname)
-
-        conn.execute("""
-        CREATE TABLE IF NOT EXISTS results (
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
-            description TEXT,
-            data TEXT
-        )
-        """)
 
         result_serialized = json.dumps(Utilities._convert_to_native_types(result))
 
