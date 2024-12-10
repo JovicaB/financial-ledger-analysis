@@ -40,10 +40,21 @@ class Utilities:
         result_converted = Utilities._convert_to_native_types(result)
 
         conn = sqlite3.connect(database_fullname)
-        conn.execute("INSERT INTO results (description, result) VALUES (?, ?)", 
-                     (description, str(result_converted))) 
+        # Use INSERT OR REPLACE to update if description exists
+        conn.execute("""
+            INSERT OR REPLACE INTO results (description, result) 
+            VALUES (?, ?)
+        """, (description, str(result_converted)))
         conn.commit()
         conn.close()
+    # def save_results(database_fullname: str, description: str, result: dict):
+    #     result_converted = Utilities._convert_to_native_types(result)
+
+    #     conn = sqlite3.connect(database_fullname)
+    #     conn.execute("INSERT INTO results (description, result) VALUES (?, ?)", 
+    #                  (description, str(result_converted))) 
+    #     conn.commit()
+    #     conn.close()
 
     @staticmethod
     def _convert_to_native_types(obj):
