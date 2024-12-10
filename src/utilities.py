@@ -37,15 +37,11 @@ class Utilities:
 
     @staticmethod
     def save_results(database_fullname: str, description: str, result: dict):
-        # Convert result values to native Python types
         result_converted = Utilities._convert_to_native_types(result)
 
-        # Connect to the SQLite database
         conn = sqlite3.connect(database_fullname)
-
-        # Insert the result into the existing table
         conn.execute("INSERT INTO results (description, result) VALUES (?, ?)", 
-                     (description, str(result_converted)))  # Store as a string
+                     (description, str(result_converted))) 
         conn.commit()
         conn.close()
 
@@ -56,18 +52,18 @@ class Utilities:
         This avoids issues with JSON serialization.
         """
         if isinstance(obj, pd.Timestamp):
-            return obj.isoformat()  # Convert pandas Timestamp to string
-        elif isinstance(obj, (np.int64, np.int32)):  # Convert numpy ints to native int
+            return obj.isoformat() 
+        elif isinstance(obj, (np.int64, np.int32)):  
             return int(obj)
-        elif isinstance(obj, (np.float64, np.float32)):  # Convert numpy floats to native float
+        elif isinstance(obj, (np.float64, np.float32)): 
             return float(obj)
-        elif isinstance(obj, pd.Series):  # Convert pandas Series to list
+        elif isinstance(obj, pd.Series):  
             return obj.tolist()
-        elif isinstance(obj, pd.DataFrame):  # Convert pandas DataFrame to dictionary of lists
+        elif isinstance(obj, pd.DataFrame): 
             return obj.to_dict(orient='records')
-        elif isinstance(obj, dict):  # Recursively convert dictionary values
+        elif isinstance(obj, dict): 
             return {k: Utilities._convert_to_native_types(v) for k, v in obj.items()}
-        return obj  # If it's a native Python type, return as is
+        return obj 
 
 
 
