@@ -36,30 +36,38 @@ class Utilities:
         return f"File {filename_without_ext} successfully converted to parquet format"
 
     @staticmethod
-    def save_results(database_fullname: str, description: str, result: Any):
+    def save_results(database_fullname: str, description: str, result: dict):
+        # Convert result values to native Python types
+        result_converted = Utilities._convert_to_native_types(result)
+
+        # Connect to the SQLite database
         conn = sqlite3.connect(database_fullname)
 
-        result_serialized = json.dumps(Utilities._convert_to_native_types(result))
-
-        conn.execute("INSERT INTO results (description, data) VALUES (?, ?)", (description, result_serialized))
+        # Insert the result into the existing table
+        conn.execute("INSERT INTO results (description, data) VALUES (?, ?)", 
+                     (description, str(result_converted)))  # Store as a string
         conn.commit()
         conn.close()
 
     @staticmethod
     def _convert_to_native_types(obj):
+        """
+        Convert numpy types, pandas types, and other non-native Python types to native Python types.
+        This avoids issues with JSON serialization.
+        """
         if isinstance(obj, pd.Timestamp):
-            return obj.isoformat() 
-        elif isinstance(obj, (np.int64, np.int32)):
-            return int(obj) 
-        elif isinstance(obj, (np.float64, np.float32)):
-            return float(obj) 
-        elif isinstance(obj, pd.Series):
-            return obj.tolist()  
-        elif isinstance(obj, pd.DataFrame):
+            return obj.isoformat()  # Convert pandas Timestamp to string
+        elif isinstance(obj, (np.int64, np.int32)):  # Convert numpy ints to native int
+            return int(obj)
+        elif isinstance(obj, (np.float64, np.float32)):  # Convert numpy floats to native float
+            return float(obj)
+        elif isinstance(obj, pd.Series):  # Convert pandas Series to list
+            return obj.tolist()
+        elif isinstance(obj, pd.DataFrame):  # Convert pandas DataFrame to dictionary of lists
             return obj.to_dict(orient='records')
-        elif isinstance(obj, dict):
-            return {k: Utilities._convert_to_native_types(v) for k, v in obj.items()} 
-        return obj
+        elif isinstance(obj, dict):  # Recursively convert dictionary values
+            return {k: Utilities._convert_to_native_types(v) for k, v in obj.items()}
+        return obj  # If it's a native Python type, return as is
 
 
 
