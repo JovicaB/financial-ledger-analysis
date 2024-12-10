@@ -1,7 +1,10 @@
 import json
 import os
+import numpy as np
 import pandas as pd
 import duckdb
+import sqlite3
+from typing import Any
 
 
 class Utilities:
@@ -33,28 +36,46 @@ class Utilities:
         return f"File {filename_without_ext} successfully converted to parquet format"
 
     @staticmethod
-    def save_result(output_description: str, output_result: any, output_file="/content/drive/MyDrive/Projects/financial_data_analysis/data/output.csv"):
-        """
-        Funkcija za snimanje podataka u CSV fajl sa zadatim opisom i rezultatima.
-        
-        Parameters:
-        - output_description: Tekstualni opis koji ide u prvu kolonu.
-        - output_result: Rezultat koji može biti bilo koji tip (int, list, dict), koji će biti konvertovan u JSON.
-        - output_file: Putanja izlaznog fajla.
-        """
-        output_result_json = json.dumps(output_result)
-        
-        df = pd.DataFrame({
-            'Opis': [output_description],
-            'json_rezultat': [output_result_json]
-        })
-        
-        if os.path.exists(output_file):
-            df.to_csv(output_file, index=False, mode='a', header=False)
-        else:
-            df.to_csv(output_file, index=False)
-        
-        print(f"Rezultat sačuvan u: {output_file}")
+    def save_results(database_fullname: str, description: str, result: Any):
+        directory = os.path.dirname(database_fullname)
+        if not os.path.exists(directory):
+            os.makedirs(directory)
 
+        conn = sqlite3.connect(database_fullname)
+
+        conn.execute("""
+        CREATE TABLE IF NOT EXISTS results (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            description TEXT,
+            data TEXT
+        )
+        """)
+
+        result_serialized = json.dumps(Utilities._convert_to_native_types(result))
+
+        conn.execute("INSERT INTO results (description, data) VALUES (?, ?)", (description, result_serialized))
+        conn.commit()
+        conn.close()
+
+    @staticmethod
+    def _convert_to_native_types(obj):
+        if isinstance(obj, pd.Timestamp):
+            return obj.isoformat() 
+        elif isinstance(obj, np.int64):
+            return int(obj) 
+        elif isinstance(obj, pd.Series):
+            return obj.tolist()  
+        elif isinstance(obj, pd.DataFrame):
+            return obj.to_dict() 
+        return obj
+
+
+
+        conn.close()
+
+database_name = "C:\\xxx.db"
+description = "Sample description"
+data = {"key1": "value1", "key2": [1, 2, 3]}
+Utilities.save_results(database_name, description, data)
 # print(Utilities.get_account_description("02255"))
 # Utilities.convert_csv_to_parquet(r'data\csv\financial_journal_2019.csv')
