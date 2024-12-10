@@ -49,12 +49,16 @@ class Utilities:
     def _convert_to_native_types(obj):
         if isinstance(obj, pd.Timestamp):
             return obj.isoformat() 
-        elif isinstance(obj, np.int64):
+        elif isinstance(obj, (np.int64, np.int32)):
             return int(obj) 
+        elif isinstance(obj, (np.float64, np.float32)):
+            return float(obj) 
         elif isinstance(obj, pd.Series):
             return obj.tolist()  
         elif isinstance(obj, pd.DataFrame):
-            return obj.to_dict() 
+            return obj.to_dict(orient='records')
+        elif isinstance(obj, dict):
+            return {k: Utilities._convert_to_native_types(v) for k, v in obj.items()} 
         return obj
 
 
