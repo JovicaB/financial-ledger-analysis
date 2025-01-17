@@ -145,7 +145,7 @@ class FinancialDataVisualization:
                 patch.set_facecolor(last_bar_color)
         
         bar_labels = ['competitor_1', 'competitor_2', 'competitor_3', 'competitor_4', 'competitor_5', 'company']
-        axes[1].set_title(f"{ratio_text} cmparison with competitors", fontsize=10)
+        axes[1].set_title(f"{ratio_text} comparison with competitors", fontsize=10)
         axes[1].set_xlabel('Competitors / company', fontsize=9)
         axes[1].tick_params(axis='x', rotation=45)
         axes[1].set_ylabel(ratio_text, fontsize=9)
