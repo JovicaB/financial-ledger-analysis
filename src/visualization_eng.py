@@ -82,7 +82,7 @@ class FinancialDataVisualization:
 
         df_company_2row_normalized = df_company_2row.div(df_company_2row.max(axis=1), axis=0)
         axes[0].bar(df_company_2row_normalized.columns, df_company_2row_normalized.loc["bar_values"], color='CadetBlue', alpha=0.7, label=description_main_var)
-        axes[0].plot(df_company_2row_normalized.columns, df_company_2row_normalized.loc["line_values"], marker='o', color='IndianRed', label="prihodi")
+        axes[0].plot(df_company_2row_normalized.columns, df_company_2row_normalized.loc["line_values"], marker='o', color='IndianRed', label="revenue")
         axes[0].set_title(f"Comparison: {description_main_var} and revenue (last 5 years)", fontsize=10)
         axes[0].set_xlabel("Year", fontsize=10)
         axes[0].set_ylabel("Relative value", fontsize=10)
@@ -95,7 +95,7 @@ class FinancialDataVisualization:
         df_competition_2row_normalized = df_competition_2rows.div(df_competition_2rows.max(axis=1), axis=0)
         bar_colors = ['DarkGray'] * 5 + ['MediumSeaGreen']
         axes[1].bar(df_competition_2row_normalized.columns, df_competition_2row_normalized.loc["line_values"], color=bar_colors, alpha=0.7, label=description_main_var)
-        axes[1].plot(df_competition_2row_normalized.columns, df_competition_2row_normalized.loc["bar_values"], marker='o', color='IndianRed', label="prihodi")
+        axes[1].plot(df_competition_2row_normalized.columns, df_competition_2row_normalized.loc["bar_values"], marker='o', color='IndianRed', label="revenue")
         axes[1].set_title(f"Comparison: {description_main_var} and revenue (competitors)", fontsize=10)
         axes[1].set_xlabel("Year", fontsize=10)
         axes[1].legend()
